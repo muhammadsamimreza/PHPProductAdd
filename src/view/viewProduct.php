@@ -33,7 +33,7 @@
                     <td class="border px-2 py-2 text-center"><?php echo $row["Name"] ?></td>
                     <td class="border text-center px-2 py-2"><?php echo $row["Price"] ?></td>
                     <td class="border text-center px-2 py-2">
-                        <a href="">Edit</a>
+                        <a href="./editproduct.php?Id=<?php echo $row["Id"]; ?>">Edit</a>
                         /
                         <a href="./deleteproduct.php?Id=<?php echo $row["Id"]; ?>">Delete</a>
                     </td>
