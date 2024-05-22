@@ -16,7 +16,7 @@
         <section id="navBar" class="container mx-auto py-3 px-2">
             <div class="flex flex-wrap flex-row items-center justify-between relative">
                 <div class="text-2xl font-bold">
-                <a href="http://localhost/PHPProjectF/src/"><img class="w-32" src="http://localhost/PHPProjectF//images/logo.png" alt="logo"></a>
+                <a href="http://localhost/PHPProjectF/src/"><img class="w-32" src="http://localhost/PHPProjectF/src/images/logo.png" alt="logo"></a>
                 </div>
                 <div class=" flex lg:hidden items-center justify-center" onclick="showMenu()">
                     <span class="" id="navMenuButtonOn">
