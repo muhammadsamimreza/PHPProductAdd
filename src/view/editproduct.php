@@ -13,6 +13,9 @@ $arrdata = mysqli_fetch_array($showdata);
  
 
 if (isset($_REQUEST["submit"])) {
+
+    $editIdUpdate = $_GET["Id"];
+
     $productName = $_REQUEST["prodName"];
     $productPrice = $_REQUEST["prodPrice"];
    
@@ -25,8 +28,14 @@ if (isset($_REQUEST["submit"])) {
     $imageFullPath = $imageDir . $imageName;
     move_uploaded_file($_FILES["prodImage"]["tmp_name"], $imageFullPath);
 
-    $query = "INSERT INTO productinfo(Image, Name, Price) VALUES ('$imageName','$productName','$productPrice')";
-    mysqli_query($conn, $query);
+    // $query = "INSERT INTO productinfo(Image, Name, Price) VALUES ('$imageName','$productName','$productPrice')";
+    // mysqli_query($conn, $query);
+
+    $editQuery = "UPDATE `productinfo` SET `Name`='$productName',`Price`='$productPrice' WHERE `Id`=$editIdUpdate";
+
+    $editData = mysqli_query($conn, $editQuery);
+
+    
 
     header("location: ../view/viewProduct.php");
     exit();
@@ -55,7 +64,7 @@ if (isset($_REQUEST["submit"])) {
                     <input type="text" name="prodPrice" id="prodPrice" value="<?php echo $arrdata["Price"]?>" placeholder="Product Price" class="w-2/3 px-3 py-1 text-md border" />
                 </div>
                 <div class="text-center my-4">
-                    <button type="submit" name="submit" class="border-2 bg-green-400 hover:bg-green-700 text-gray-800 hover:text-red-100 duration-300 font-semibold rounded-2xl px-3 py-2">Update</button>
+                    <button type="submit" name="submit" value="update" class="border-2 bg-green-400 hover:bg-green-700 text-gray-800 hover:text-red-100 duration-300 font-semibold rounded-2xl px-3 py-2">Update</button>
                 </div>
             </form>
         </div>
